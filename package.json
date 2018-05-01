@@ -3,7 +3,8 @@
   "version": "2.7.1",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server.js",
+    "postinstall": "ng build",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
@@ -36,13 +37,13 @@
     "ngx-bootstrap": "^1.6.6",
     "peity": "^3.2.1",
     "rxjs": "^5.1.0",
-    "zone.js": "^0.8.4"
-  },
-  "devDependencies": {
     "@angular/cli": "^1.0.0",
     "@angular/compiler-cli": "^2.4.0",
     "@types/jasmine": "2.5.38",
     "@types/node": "~6.0.60",
+    "zone.js": "^0.8.4"
+  },
+  "devDependencies": {
     "codelyzer": "~2.0.0",
     "jasmine-core": "~2.5.2",
     "jasmine-spec-reporter": "~3.2.0",
