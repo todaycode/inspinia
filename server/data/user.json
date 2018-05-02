@@ -1,0 +1,27 @@
+{
+  "admin": {
+    "password": "123",
+    "role": 1,
+    "name": "Alex Lim"
+  },
+  "testmaster": {
+    "password": "123",
+    "role": 2,
+    "name": "Morey Ames"
+  },
+  "testuser": {
+    "password": "123",
+    "role": 3,
+    "name": "Juan Steve"
+  },
+  "employee": {
+    "password": "123",
+    "role": 4,
+    "name": "David Keller"
+  },
+  "employee1": {
+    "password": "123",
+    "role": 4,
+    "name": "Eddie Gracie"
+  }
+}

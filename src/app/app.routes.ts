@@ -49,5 +49,5 @@ export const ROUTES:Routes = [
   },
 
   // Handle all other routes
-  {path: '**',  redirectTo: 'login'}
+  // {path: '**',  redirectTo: 'login'}
 ];

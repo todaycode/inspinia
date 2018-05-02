@@ -14,6 +14,7 @@ import {AppviewsModule} from "./views/appviews/appviews.module";
 
 // App modules/components
 import {LayoutsModule} from "./components/common/layouts/layouts.module";
+import { LoginService } from './login.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import {LayoutsModule} from "./components/common/layouts/layouts.module";
     AppviewsModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}, LoginService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -417,6 +417,7 @@ function smoothlyMenu() {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__views_dashboards_dashboards_module__ = __webpack_require__("./src/app/views/dashboards/dashboards.module.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__views_appviews_appviews_module__ = __webpack_require__("./src/app/views/appviews/appviews.module.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__components_common_layouts_layouts_module__ = __webpack_require__("./src/app/components/common/layouts/layouts.module.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__login_service__ = __webpack_require__("./src/app/login.service.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -435,6 +436,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 
 
 // App modules/components
+
 
 var AppModule = (function () {
     function AppModule() {
@@ -455,7 +457,7 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_9__views_appviews_appviews_module__["a" /* AppviewsModule */],
             __WEBPACK_IMPORTED_MODULE_4__angular_router__["b" /* RouterModule */].forRoot(__WEBPACK_IMPORTED_MODULE_6__app_routes__["a" /* ROUTES */])
         ],
-        providers: [{ provide: __WEBPACK_IMPORTED_MODULE_5__angular_common__["g" /* LocationStrategy */], useClass: __WEBPACK_IMPORTED_MODULE_5__angular_common__["d" /* HashLocationStrategy */] }],
+        providers: [{ provide: __WEBPACK_IMPORTED_MODULE_5__angular_common__["g" /* LocationStrategy */], useClass: __WEBPACK_IMPORTED_MODULE_5__angular_common__["d" /* HashLocationStrategy */] }, __WEBPACK_IMPORTED_MODULE_11__login_service__["a" /* LoginService */]],
         bootstrap: [__WEBPACK_IMPORTED_MODULE_7__app_component__["a" /* AppComponent */]]
     })
 ], AppModule);
@@ -512,19 +514,17 @@ var ROUTES = [
         ]
     },
     {
-        path: 'ss', component: __WEBPACK_IMPORTED_MODULE_9__components_common_layouts_basicLayout_component__["a" /* BasicLayoutComponent */],
-        children: [
-            { path: 'starterview', component: __WEBPACK_IMPORTED_MODULE_6__views_appviews_starterview_component__["a" /* StarterViewComponent */] }
-        ]
-    },
-    {
         path: '', component: __WEBPACK_IMPORTED_MODULE_8__components_common_layouts_blankLayout_component__["a" /* BlankLayoutComponent */],
         children: [
             { path: 'login', component: __WEBPACK_IMPORTED_MODULE_7__views_appviews_login_component__["a" /* LoginComponent */] },
         ]
     },
-    // Handle all other routes
-    { path: '**', redirectTo: 'login' }
+    {
+        path: '', component: __WEBPACK_IMPORTED_MODULE_9__components_common_layouts_basicLayout_component__["a" /* BasicLayoutComponent */],
+        children: [
+            { path: 'starterview', component: __WEBPACK_IMPORTED_MODULE_6__views_appviews_starterview_component__["a" /* StarterViewComponent */] }
+        ]
+    },
 ];
 //# sourceMappingURL=app.routes.js.map
 
@@ -1398,6 +1398,36 @@ var _a;
 
 /***/ }),
 
+/***/ "./src/app/login.service.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return LoginService; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("./node_modules/@angular/core/@angular/core.es5.js");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+var LoginService = (function () {
+    function LoginService() {
+    }
+    return LoginService;
+}());
+LoginService = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Injectable"])(),
+    __metadata("design:paramtypes", [])
+], LoginService);
+
+//# sourceMappingURL=login.service.js.map
+
+/***/ }),
+
 /***/ "./src/app/views/appviews/appviews.module.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -1474,6 +1504,9 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var LoginComponent = (function () {
     function LoginComponent() {
     }
+    LoginComponent.prototype.ngOnInit = function () {
+        console.log('login init...');
+    };
     return LoginComponent;
 }());
 LoginComponent = __decorate([
@@ -1491,7 +1524,7 @@ LoginComponent = __decorate([
 /***/ "./src/app/views/appviews/login.template.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"middle-box text-center loginscreen  animated fadeInDown\">\r\n  <h2>Welcome to Franchise Manager</h2>\r\n  <div style=\"display: flex; align-items: center;\">\r\n    <div>\r\n      <img src=\"assets/images/login.png\" alt=\"\">\r\n    </div>\r\n    <div class=\"al-form\">\r\n      <form class=\"m-t\" role=\"form\" action=\"#\">\r\n        <div class=\"form-group\">\r\n          <input type=\"email\" class=\"form-control\" placeholder=\"Username\" required=\"\">\r\n        </div>\r\n        <div class=\"form-group\">\r\n          <input type=\"password\" class=\"form-control\" placeholder=\"Password\" required=\"\">\r\n        </div>\r\n        <button type=\"submit\" class=\"btn btn-primary block full-width m-b\">Login</button>\r\n\r\n        <a href=\"#\">\r\n          <small>Forgot password?</small>\r\n        </a>\r\n      </form>\r\n      <p class=\"text-muted text-center\">\r\n        <small>If you are franchise owner and do not have an account, click the \"SignUp\"\r\n          <br/> button below to get started.</small>\r\n      </p>\r\n      <a class=\"btn btn-sm btn-block btn-danger\" href=\"#\">Sign up</a>\r\n    </div>\r\n  </div>\r\n  <p class=\"m-t al-foo\">\r\n    <small>Copyright Critical Hosting, Inc. &copy; 2018</small>\r\n  </p>\r\n</div>\r\n"
+module.exports = "<div class=\"middle-box text-center loginscreen  animated fadeInDown\">\r\n  <h2>Welcome to Franchise Manager</h2>\r\n  <div style=\"display: flex; align-items: center;\">\r\n    <div>\r\n      <img src=\"assets/images/login.png\" alt=\"\">\r\n    </div>\r\n    <div class=\"al-form\">\r\n      <form class=\"m-t\" role=\"form\" action=\"#\">\r\n        <div class=\"form-group\">\r\n          <input type=\"email\" class=\"form-control\" placeholder=\"Username\" required=\"\">\r\n        </div>\r\n        <div class=\"form-group\">\r\n          <input type=\"password\" class=\"form-control\" placeholder=\"Password\" required=\"\">\r\n        </div>\r\n        <a routerLink='/starterview'>\r\n          <button type=\"submit\" class=\"btn btn-primary block full-width m-b\">Login</button>\r\n        </a>\r\n        <a href=\"#\">\r\n          <small>Forgot password?</small>\r\n        </a>\r\n      </form>\r\n      <p class=\"text-muted text-center\">\r\n        <small>If you are franchise owner and do not have an account, click the \"SignUp\"\r\n          <br/> button below to get started.</small>\r\n      </p>\r\n      <a class=\"btn btn-sm btn-block btn-danger\" href=\"#\">Sign up</a>\r\n    </div>\r\n  </div>\r\n  <p class=\"m-t al-foo\">\r\n    <small>Copyright Critical Hosting, Inc. &copy; 2018</small>\r\n  </p>\r\n</div>\r\n"
 
 /***/ }),
 
