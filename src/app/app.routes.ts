@@ -36,15 +36,15 @@ export const ROUTES:Routes = [
     ]
   },
   {
-    path: 'ss', component: BasicLayoutComponent,
-    children: [
-      {path: 'starterview', component: StarterViewComponent}
-    ]
-  },
-  {
     path: '', component: BlankLayoutComponent,
     children: [
       { path: 'login', component: LoginComponent },
+    ]
+  },
+  {
+    path: '', component: BasicLayoutComponent,
+    children: [
+      {path: 'starterview', component: StarterViewComponent}
     ]
   },
 
