@@ -1,0 +1,29 @@
+
+.al-form {
+  min-width: 400px !important;
+  margin: 0 40px;
+}
+
+form {
+  background: white;
+  padding: 25px;
+}
+.middle-box {
+  margin: 20vh 30% !important;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+}
+
+h2 {
+  min-width: 400px;
+  margin: 50px 0;
+  font-weight: bold;
+}
+
+.al-foo {
+  margin: 50px 200px;
+  min-width: 400px;
+  font-size: 1.5em;
+  font-weight: bold;
+}

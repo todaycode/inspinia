@@ -16,7 +16,7 @@ import {TopNavigationLayoutComponent} from "./components/common/layouts/topNavig
 
 export const ROUTES:Routes = [
   // Main redirect
-  {path: '', redirectTo: 'starterview', pathMatch: 'full'},
+  {path: '', redirectTo: 'login', pathMatch: 'full'},
 
   // App views
   {
@@ -36,7 +36,7 @@ export const ROUTES:Routes = [
     ]
   },
   {
-    path: '', component: BasicLayoutComponent,
+    path: 'ss', component: BasicLayoutComponent,
     children: [
       {path: 'starterview', component: StarterViewComponent}
     ]
@@ -49,5 +49,5 @@ export const ROUTES:Routes = [
   },
 
   // Handle all other routes
-  {path: '**',  redirectTo: 'starterview'}
+  {path: '**',  redirectTo: 'login'}
 ];
